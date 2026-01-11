@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+      <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Nachhilfe MG Logo" class="site-logo" />
+      Nachhilfe MG
+    </div>
+    <nav>
+      <a href="index.html">Home</a>    
+      <a id="logout">Logout</a> 
+    </nav>
+  </header>
+  <h1>Dashboard</h1>
+
+  <!-- Schülerbereich -->
+  <section id="student-area" class="hidden">
+    <h2 id="videos">Videos für Schüler</h2>
+
+    <h3>Kostenfreie Videos</h3>
+    <ul id="free-video-list"></ul>
+
+    <h3>Exklusive Inhalte (nur für registrierte Nutzer)</h3>
+    <ul id="exclusive-video-list"></ul>
+
+    <h2>Nachhilfe buchen</h2>
+    <form id="booking-form">
+      <label>
+        Fach
+        <select>
+          <option>Mathematik</option>
+          <option>Deutsch</option>
+          <option>Englisch</option>
+        </select>
+      </label>
+
+      <label>
+        Termin
+        <input type="datetime-local" />
+      </label>
+
+      <button type="submit">Termin buchen</button>
+    </form>
+  </section>
+
+  <!-- Lehrerbereich -->
+  <section id="teacher-area" class="hidden">
+    <h2>Meine Videos</h2>
+    <ul id="teacher-video-list"></ul>
+
+    <h2>Neues Video hochladen</h2>
+    <form id="upload-form">
+         <input type="text" placeholder="Videotitel" required />
+        <input type="file" required />
+         <button type="submit">Hochladen</button>
+    </form>
+
+    <h2>Gebuchte Termine</h2>
+    <div id="teacher-appointments"></div>
+
+    <h2>Termine vergeben</h2>
+    <button>Neuen Termin erstellen</button>
+
+  </section>
+
+
+  <button id="logout">Logout</button>
+
+  <footer>
+    &copy; 2026 Nachhilfe MG
+    <a href="impressum.html" class="footer-link">Impressum</a>
+    <a href="datenschutzerklaerung.html" class="footer-link">Datenschutzerklärung</a>
+  </footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

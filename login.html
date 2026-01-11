@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Nachhilfe MG Logo" class="site-logo" />
+      Nachhilfe MG
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html#videos">Videos</a>
+      <a href="register.html" class="register-btn">Jetzt registrieren</a>
+      <a href="login.html" class="login-btn">Login</a>
+    </nav>
+  </header>
+
+  <h1>Login</h1>
+
+  <form id="login-form">
+    <label>E-Mail <input type="email" id="email" required /></label>
+    <label>Passwort <input type="password" id="password" required /></label>
+    <button type="submit">Einloggen</button>
+  </form>
+
+  <p id="error" class="error"></p>
+
+  <div class="back-home">
+    <a href="index.html" class="secondary-btn">Zur Startseite</a>
+  </div>
+
+  <footer>
+    &copy; 2026 Nachhilfe MG
+    <a href="impressum.html" class="footer-link">Impressum</a>
+    <a href="datenschutzerklaerung.html" class="footer-link">Datenschutzerklärung</a>
+  </footer>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
