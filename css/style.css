@@ -1,551 +1,242 @@
-/* --- Allgemein --- */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
+/* =========================
+   BASIS / RESET
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Use border-box universally to avoid width surprises when zooming */
-*, *:before, *:after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.5;
+  background-color: #ffffff;
+}
 
-/* --- Header --- */
+/* =========================
+   HEADER (MOBILE FIRST)
+   ========================= */
 header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  height: 64px; /* narrow header */
-  padding: 0 8px; /* horizontal padding */
+  justify-content: space-between;
+  padding: 12px 16px;
   background-color: #4a90e2;
   color: #fff;
-  box-sizing: border-box;
-  overflow: visible; /* allow logo to overflow */
-  z-index: 10;
-}   
-
-header .logo {
-  font-size: 1.5em; /* label next to logo */
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
-header .logo .site-logo {
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+}
+
+.site-logo {
+  max-height: clamp(60px, 18vw, 110px);
   width: auto;
-  height: 180px; /* much larger logo that will overflow the header */
-  max-height: none;
   object-fit: contain;
   border-radius: 6px;
-  margin-bottom: -54px; /* pull logo down so it protrudes further below the blue bar */
-  position: relative;
-  z-index: 20;
-}     
-/*header home + videos button */
+}
+
+/* Navigation */
+header nav {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 header nav a {
-  background-color: #92b8df;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 12px;
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
   border-radius: 6px;
-  margin-left: 12px;
-  margin-right: 8px;
   font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background-color: #92b8df;
   border: 2px solid transparent;
-  transition: background-color 180ms ease, color 120ms ease, transform 120ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
 header nav a:hover {
-  color: #92b8df;
-  background-color: #ffffff;
+  background-color: #fff;
+  color: #4a90e2;
 }
 
-/* Header login button */
 header nav .login-btn {
   background-color: #49cc43;
-  color: #fff; 
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-left: 12px;
-  margin-right: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 2px solid transparent;
-  transition: background-color 180ms ease, color 120ms ease, transform 120ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-header nav .login-btn:hover {
-  background-color: #ffffff;
-  color: #49cc43;
-}
-
-/* Header register button */
 header nav .register-btn {
   background-color: #ecb314;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-left: 12px;
-  margin-right: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 2px solid transparent;
-  transition: background-color 180ms ease, color 120ms ease, transform 120ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-header nav .register-btn:hover {
-  background-color: #ffffff;
-  color: #ecb314;
-}  
-
-/* --- Hero Section --- */
+/* =========================
+   HERO SECTION
+   ========================= */
 .hero {
-  display: flex;
-  flex-direction: column;
-  padding: 52px 12px; /*  top/bottom padding to bring hero farer/closer to header */
+  padding: clamp(24px, 6vw, 56px) 16px;
   background-color: #f2f9ff;
-}  
+}
 
 .hero-content {
   display: flex;
-  align-items: flex-start; /* top-align text and image */
-  justify-content: space-between;
-  gap: 18px;
-} 
-
-/* Desktop layout: make heading area wider and image smaller */
-.hero-text { 
-  max-width: none;
-  flex: 1 1 65%; /* text gets most of the row */
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
 }
 
-.hero-image {
-  flex: 0 0 40%; /* image column narrower */
-  margin-left: auto; /* hug the right side */
-  margin-right: 0;
-}  
-
+/* Text */
 .hero-text {
-  max-width: none;
-  flex: 1 1 65%;
-} 
+  max-width: 680px;
+  text-align: center;
+}
 
-/* Headings: small gap between H1/H2, larger gap before first paragraph */
 .hero-text h1,
 .hero-text h2 {
-  font-size: 2.4em;
-  margin: 0 0 6px 0; /* small distance between headings */
+  margin: 0 0 8px 0;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  line-height: 1.2;
   color: #2c3e50;
-  line-height: 1.12;
 }
 
-/* Paragraph spacing: more space after headings to first paragraph, less between paragraphs */
 .hero-text p {
-  font-size: 1.2em;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
+  margin: 12px 0 0 0;
+  font-size: clamp(0.95rem, 2.6vw, 1.15rem);
 }
 
-.hero-text p:first-of-type {
-  margin-top: 18px; /* larger distance from heading to first paragraph */
-}
-
-.hero-text p + p {
-  margin-top: 6px; /* smaller distance between p1 and p2 */
-}
-
-/* Ensure the last paragraph doesn't add extra bottom margin */
-.hero-text p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* Page headings spacing for simple pages (Login and Registration)
-   - `body > h1` targets the H1 on `login.html`
-   - `.register h1` targets the H1 inside the registration section
-   Using `clamp()` keeps spacing responsive so zooming doesn't push layout around.
-*/
-body > h1,
-.register h1 {
-  margin-top: calc(8px + clamp(28px, 6vw, 72px));
-  margin-bottom: 18px;
-  text-align: left;
-  font-size: 2rem;
-}
-
-.hero-register-row {
-  margin-top: -64px; /* pulled up but safer to avoid overlap on narrow screens */
+/* Buttons */
+.hero-register-row,
+.hero-login-row {
+  margin-top: 14px;
   display: flex;
-  justify-content: flex-start;
-} 
+  justify-content: center;
+}
 
-.hero-register-row .register-btn {
-  background-color: #ecb314;
-  color: #fff;
-  padding: 12px 24px;
+.hero-register-row a,
+.hero-login-row a {
+  width: min(100%, 280px);
+  padding: 12px 18px;
   border-radius: 20px;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
-  display: inline-block;
-  border: 2px solid rgba(0,0,0,0.04);
-  transition: background-color 180ms ease, color 180ms ease, transform 150ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
-/* Hero register hover: subtle inversion with lift */
-.hero-register-row .register-btn:hover {
+.hero-register-row a {
+  background-color: #ecb314;
+}
+
+.hero-login-row a {
+  background-color: #49cc43;
+}
+
+.hero-register-row a:hover {
   background-color: #fff;
   color: #ecb314;
   border-color: #ecb314;
 }
 
-.hero-login-row {
-  margin-top: 8px; /* pulled up to sit much closer to the text */
-  display: flex;
-  justify-content: flex-start;
-}  
-
-.hero-login-row .login-btn {
-  background-color: #49cc43;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 20px;
-  font-weight: bold;
-  display: inline-block;
-  border: 2px solid rgba(0,0,0,0.04);
-  transition: background-color 180ms ease, color 180ms ease, transform 150ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.hero-login-row .login-btn:hover {
+.hero-login-row a:hover {
   background-color: #fff;
   color: #49cc43;
   border-color: #49cc43;
 }
 
-/* Make hero register and login buttons equal width and responsive */
-.hero-register-row .register-btn,
-.hero-login-row .login-btn {
-  display: inline-flex;
-  align-items: center;
+/* Image */
+.hero-image {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  min-width: 220px;
-  max-width: 90%;
-  box-sizing: border-box;
-  text-align: center;
 }
 
-@media (max-width: 480px) {
-  .hero-register-row .register-btn,
-  .hero-login-row .login-btn {
-    min-width: clamp(120px, 36vw, 200px);
-    width: auto;
-    max-width: 100%;
-  }
-
-  /* Stack hero content nicely on very small screens */
-  .hero-content { align-items: center; }
-  .hero-image { margin-right: 0; margin-left: 0; }
-  #landing-image { max-width: 100%; margin: 12px 0; }
-}  
-
-
-/* --- Hero Image --- */
-.hero-image {
-  margin-left: auto; /* push image to the right within the hero content */
-  margin-right: 24px; /* reduced space to prevent overflow on small screens */
-} 
-
 .hero-image img {
-  width: 100%;
-  max-width: 420px; /* increased to enlarge image a bit more */
+  max-width: min(100%, 420px);
   height: auto;
-  border-radius: 10px;
-  margin: 0; /* remove global centering */
-  display: block;
-}  
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-/* Ensure the landing image isn't auto-centered when inside the hero */
-.hero-image #landing-image {
-  max-width: 420px;
-  margin: 0 40px 0 0; /* add right gap when inside the hero */
-  display: block;
-} 
-
-/* --- Footer --- */
+/* =========================
+   FOOTER
+   ========================= */
 footer {
+  margin-top: 64px;
+  padding: 18px 14px;
   text-align: center;
-  padding: 20px;
   background-color: #4a90e2;
   color: #fff;
-  margin-top: 70px; /* increased to lengthen the page */
+  font-size: 0.9rem;
 }
 
 footer .footer-link {
   color: #fff;
   margin-left: 12px;
   text-decoration: underline;
-  opacity: 0.95;
 }
 
 footer .footer-link:hover {
-  opacity: 0.85;
   text-decoration: none;
-}   
+}
 
-/* --- Utility --- */
+/* =========================
+   UTILITIES
+   ========================= */
 .hidden {
   display: none;
 }
 
-/* --- Startseite Button --- */
 .back-home {
-  margin-top: 12px;
+  margin-top: 16px;
   text-align: center;
-} 
+}
 
 .secondary-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: 8px;
+  background-color: #4a90e2;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  background-color: #4a90e2;
-  color: #ffffff;
-  border: 2px solid rgba(0,0,0,0.04);
-  transition: background-color 180ms ease, color 180ms ease, transform 150ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.secondary-btn:hover {
-  background-color: #ffffff;
-  color: #4a90e2;
-  border-color: #4a90e2;
+/* =========================
+   DESKTOP ENHANCEMENTS
+   ========================= */
+@media (min-width: 900px) {
 
-}
-
-#landing-image {
-  max-width: 75%;    /* increased to make image slightly larger */
-  width: 100%;
-  height: auto;       /* Höhe proportional */
-  border-radius: 12px; /* optional: abgerundete Ecken */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional: Schatten */
-  margin-top: 20px;    /* slightly increased top spacing */
-  display: block;
-  margin: 20px auto;
-}  
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 900px) {
-  header {
-    padding: 16px 20px;
-  }
-
-  .logo {
-    font-size: 1.25em;
+  header nav {
+    width: auto;
+    margin-top: 0;
   }
 
   header nav a {
-    margin-left: 12px;
-    font-size: 0.95em;
-  }
-
-  header {
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    padding: 36px 16px;
-    text-align: center;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    align-items: flex-start; /* keep top alignment on tablet */
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-
-  .hero-text h1,
-  .hero-text h2 {
-    font-size: 1.75em;
-    margin: 0 0 6px 0;
-  }
-
-  .hero-text p {
-    font-size: 1em;
-    margin: 0 0 12px 0;
-  }
-
-  .hero-text p:first-of-type { margin-top: 16px; }
-  .hero-text p + p { margin-top: 6px; }
-
-  .hero-register-row { justify-content: center; margin-top: -4px; }
-  .hero-login-row { justify-content: center; margin-top: -2px; }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 380px;
-    margin-top: 0; /* prevent image shifting; keep aligned to top */
-  }
-
-  /* tablet: prevent landing image overflow and keep spacing */
-  #landing-image { max-width: 100%; margin: 12px 0; }  
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 10px 8px; /* slightly tightened on mobile */
-    height: 56px; /* keep header compact on mobile */
-  }
-
-  header .logo .site-logo {
-    height: 140px; /* larger logo on mobile */
-    max-height: none;
-    width: auto;
-    margin-bottom: -46px; /* pull down to overflow the blue bar */
-  }
-
-  .hero {
-    padding: 18px 12px; /* reduced vertical padding on mobile to tighten header gap */
-  }
-
-  .login-btn {
-    padding: 10px 18px;
-  }
-
-  .hero-register-row { justify-content: center; margin-top: -2px; }
-  .hero-login-row { justify-content: center; margin-top: 0px; }
-
-  header nav {
-    margin-top: 8px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  header nav .login-btn, header nav .register-btn { margin-left: 0; }
-
-  .hero-text h1 {
-    font-size: 1.4em;
-    margin: 0 0 6px 0;
-  }
-
-  .hero-text p {
-    font-size: 0.95em;
-    margin: 0 0 10px 0;
-  }
-
-  .hero-text p:first-of-type { margin-top: 14px; }
-  .hero-text p + p { margin-top: 6px; }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 380px; /* increased mobile image size slightly */
-    border-radius: 8px;
-  }
-}
-/* =========================
-   MOBILE OPTIMIERUNG FINAL
-   ========================= */
-@media (max-width: 600px) {
-
-  /* --- Header --- */
-  header {
-    height: auto;
-    padding: 8px 10px;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-
-  header .logo {
-    gap: 8px;
-    font-size: 1.1em;
-  }
-
-  header .logo .site-logo {
-    height: 110px;
-    margin-bottom: -24px; /* dezenter Überstand */
-  }
-
-  header nav {
-    width: 100%;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  header nav a,
-  header nav .login-btn,
-  header nav .register-btn {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 10px 14px;
-  }
-
-  /* --- Hero Layout --- */
-  .hero {
-    padding: 20px 14px;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .hero-text {
-    text-align: center;
     flex: none;
   }
 
-  .hero-text h1,
-  .hero-text h2 {
-    font-size: 1.45rem;
-    line-height: 1.2;
+  .hero-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  .hero-text p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+  .hero-text {
+    text-align: left;
+    flex: 1 1 60%;
   }
 
-  /* --- Hero Buttons --- */
-  .hero-register-row,
-  .hero-login-row {
-    margin-top: 10px;
-    justify-content: center;
-  }
-
-  .hero-register-row .register-btn,
-  .hero-login-row .login-btn {
-    width: 100%;
-    max-width: 280px;
-    min-width: unset;
-    padding: 12px 16px;
-    border-radius: 18px;
-  }
-
-  /* --- Hero Image --- */
   .hero-image {
-    margin: 0;
-    flex: none;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-image img,
-  #landing-image {
-    max-width: 92%;
-    margin: 0 auto;
-    border-radius: 10px;
-  }
-
-  /* --- Footer --- */
-  footer {
-    padding: 16px 10px;
-    font-size: 0.9rem;
+    flex: 0 0 40%;
+    justify-content: flex-end;
   }
 }
