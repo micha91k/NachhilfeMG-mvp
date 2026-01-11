@@ -6,6 +6,9 @@ body {
   color: #333;
 }
 
+/* Use border-box universally to avoid width surprises when zooming */
+*, *:before, *:after { box-sizing: border-box; }
+
 /* --- Header --- */
 header {
   display: flex;
@@ -117,9 +120,10 @@ header nav .register-btn:hover {
 }
 
 .hero-image {
-  flex: 0 0 40; /* image column narrower */
+  flex: 0 0 40%; /* image column narrower */
   margin-left: auto; /* hug the right side */
-} 
+  margin-right: 0;
+}  
 
 .hero-text {
   max-width: none;
@@ -169,10 +173,10 @@ body > h1,
 }
 
 .hero-register-row {
-  margin-top: -120px; /* pulled up to sit much closer to the text */
+  margin-top: -64px; /* pulled up but safer to avoid overlap on narrow screens */
   display: flex;
   justify-content: flex-start;
-}
+} 
 
 .hero-register-row .register-btn {
   background-color: #ecb314;
@@ -232,25 +236,32 @@ body > h1,
 @media (max-width: 480px) {
   .hero-register-row .register-btn,
   .hero-login-row .login-btn {
-    min-width: 160px;
+    min-width: clamp(120px, 36vw, 200px);
     width: auto;
     max-width: 100%;
   }
-} 
+
+  /* Stack hero content nicely on very small screens */
+  .hero-content { align-items: center; }
+  .hero-image { margin-right: 0; margin-left: 0; }
+  #landing-image { max-width: 100%; margin: 12px 0; }
+}  
 
 
 /* --- Hero Image --- */
 .hero-image {
   margin-left: auto; /* push image to the right within the hero content */
-  margin-right: 40px; /* add space between image and right page edge */
-}
+  margin-right: 24px; /* reduced space to prevent overflow on small screens */
+} 
 
 .hero-image img {
   width: 100%;
   max-width: 420px; /* increased to enlarge image a bit more */
+  height: auto;
   border-radius: 10px;
   margin: 0; /* remove global centering */
-} 
+  display: block;
+}  
 
 /* Ensure the landing image isn't auto-centered when inside the hero */
 .hero-image #landing-image {
@@ -312,6 +323,7 @@ footer .footer-link:hover {
 
 #landing-image {
   max-width: 75%;    /* increased to make image slightly larger */
+  width: 100%;
   height: auto;       /* Höhe proportional */
   border-radius: 12px; /* optional: abgerundete Ecken */
   box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional: Schatten */
@@ -374,7 +386,10 @@ footer .footer-link:hover {
     width: 100%;
     max-width: 380px;
     margin-top: 0; /* prevent image shifting; keep aligned to top */
-  }  
+  }
+
+  /* tablet: prevent landing image overflow and keep spacing */
+  #landing-image { max-width: 100%; margin: 12px 0; }  
 }
 
 @media (max-width: 480px) {
