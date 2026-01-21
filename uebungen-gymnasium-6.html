@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Übungen Gymnasium 6. Klasse - Schülernachhilfe Plattform</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="logo">
       <img src="images/logo.png" alt="Nachhilfe MG Logo" class="site-logo" />
@@ -15,7 +17,7 @@
     <nav>
       <a href="index.html">Home</a>
       <div class="dropdown">
-        <a href="uebungen.html" class="dropbtn">Übungen</a> 
+        <a href="uebungen.html" class="dropbtn">Übungen</a>
         <div class="dropdown-content">
           <div class="sub-dropdown">
             <a href="#">Realschule</a>
@@ -52,28 +54,27 @@
           </div>
         </div>
       </div>
-      <a href="dashboard.html#videos">Videos</a>
+      <a href="dashboard.html#videos">Dashboard</a>
       <a href="register.html" class="register-btn">Neu registrieren</a>
       <a href="login.html" class="login-btn">Login</a>
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <section class="contact">
-      <h1>Kontakt</h1>
-      <p>Schreib uns bei Fragen oder Anliegen — wir melden uns so schnell wie möglich zurück.</p>
+    <section class="exercises">
+      <h1>Übungen Gymnasium 6. Klasse</h1>
+      <p>Hier findest du Übungen für die 6. Klasse des Gymnasiums.</p>
 
-      <form id="contact-form">
-        <div class="contact-row">
-          <label class="half">Name <input type="text" name="name" required></label>
-          <label class="half">E-Mail <input type="email" name="email" required></label>
-        </div>
-        <label class="full">Nachricht <textarea name="message" rows="6" required></textarea></label>
-        <button type="submit" class="cta-btn">Nachricht senden</button>
-      </form> 
-
-      <div class="back-home">
-        <a href="index.html" class="secondary-btn">Zur Startseite</a>
+      <!-- Übungen für Gymnasium 6. Klasse -->
+      <div class="exercise-list">
+        <h2>Verfügbare Übungen</h2>
+        <ul>
+          <li><a href="#">Übung 1: Dezimalzahlen</a></li>
+          <li><a href="#">Übung 2: Geometrie</a></li>
+          <li><a href="#">Übung 3: Brüche</a></li>
+          <!-- Weitere Übungen hinzufügen -->
+        </ul>
       </div>
     </section>
   </main>
@@ -85,13 +86,5 @@
     <a href="datenschutzerklaerung.html" class="footer-link">Datenschutzerklärung</a>
   </footer>
 
-  <script>
-    // Placeholder behaviour: prevent actual submit and acknowledge user
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Vielen Dank! Die Nachricht wurde (lokal) angenommen.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>

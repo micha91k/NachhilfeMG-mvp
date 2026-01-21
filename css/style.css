@@ -77,6 +77,93 @@ header nav .register-btn {
   background-color: #ecb314;
 }
 
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  flex: 1;
+}
+
+.dropbtn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background-color: #92b8df;
+  border: 2px solid transparent;
+  transition: background-color 160ms ease, color 160ms ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropbtn:hover {
+  background-color: #fff;
+  color: #4a90e2;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown .sub-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.sub-dropdown:hover .sub-content {
+  display: block;
+}
+
+.sub-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.sub-content a:hover {
+  background-color: #f1f1f1;
+}
+
 /* =========================
    HERO SECTION
    ========================= */

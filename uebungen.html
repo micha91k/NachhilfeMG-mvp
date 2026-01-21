@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Übungen</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="logo">
       <img src="images/logo.png" alt="Nachhilfe MG Logo" class="site-logo" />
@@ -15,7 +17,7 @@
     <nav>
       <a href="index.html">Home</a>
       <div class="dropdown">
-        <a href="uebungen.html" class="dropbtn">Übungen</a> 
+        <a href="uebungen.html" class="dropbtn">Übungen</a>
         <div class="dropdown-content">
           <div class="sub-dropdown">
             <a href="#">Realschule</a>
@@ -52,29 +54,40 @@
           </div>
         </div>
       </div>
-      <a href="dashboard.html#videos">Videos</a>
+      <a href="dashboard.html#videos">Dashboard</a>
       <a href="register.html" class="register-btn">Neu registrieren</a>
       <a href="login.html" class="login-btn">Login</a>
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <section class="contact">
-      <h1>Kontakt</h1>
-      <p>Schreib uns bei Fragen oder Anliegen — wir melden uns so schnell wie möglich zurück.</p>
-
-      <form id="contact-form">
-        <div class="contact-row">
-          <label class="half">Name <input type="text" name="name" required></label>
-          <label class="half">E-Mail <input type="email" name="email" required></label>
-        </div>
-        <label class="full">Nachricht <textarea name="message" rows="6" required></textarea></label>
-        <button type="submit" class="cta-btn">Nachricht senden</button>
-      </form> 
-
-      <div class="back-home">
-        <a href="index.html" class="secondary-btn">Zur Startseite</a>
-      </div>
+    <section class="exercises">
+      <h1>Übungen</h1>
+      <p>Hier findest du verschiedene Übungen zur Mathematik-Nachhilfe.</p>
+      <p>Wähle deine Schulform und Klasse aus dem Menü, um passende Übungen zu finden.</p>
+      <!-- Add exercise content here -->
+      <h2>Gymnasium</h2>
+        <a href="uebungen-gymnasium-5.html">5. Klasse</a>
+        <a href="uebungen-gymnasium-6.html">6. Klasse</a>
+        <a href="uebungen-gymnasium-7.html">7. Klasse</a>
+        <a href="uebungen-gymnasium-8.html">8. Klasse</a>
+        <a href="uebungen-gymnasium-9.html">9. Klasse</a>
+        <a href="uebungen-gymnasium-10.html">10. Klasse</a>
+      <h2>Realschule</h2>
+        <a href="uebungen-realschule-5.html">5. Klasse</a>
+        <a href="uebungen-realschule-6.html">6. Klasse</a>
+        <a href="uebungen-realschule-7.html">7. Klasse</a>
+        <a href="uebungen-realschule-8.html">8. Klasse</a>
+        <a href="uebungen-realschule-9.html">9. Klasse</a>
+        <a href="uebungen-realschule-10.html">10. Klasse</a>
+      <h2>Hauptschule</h2>
+        <a href="uebungen-hauptschule-5.html">5. Klasse</a>
+        <a href="uebungen-hauptschule-6.html">6. Klasse</a>
+        <a href="uebungen-hauptschule-7.html">7. Klasse</a>
+        <a href="uebungen-hauptschule-8.html">8. Klasse</a>
+        <a href="uebungen-hauptschule-9.html">9. Klasse</a>
+        <a href="uebungen-hauptschule-10.html">10. Klasse</a> 
     </section>
   </main>
 
@@ -85,13 +98,5 @@
     <a href="datenschutzerklaerung.html" class="footer-link">Datenschutzerklärung</a>
   </footer>
 
-  <script>
-    // Placeholder behaviour: prevent actual submit and acknowledge user
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Vielen Dank! Die Nachricht wurde (lokal) angenommen.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>
