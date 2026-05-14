@@ -13,17 +13,23 @@ body {
   color: #333;
   line-height: 1.5;
   background-color: #ffffff;
+  padding-top: 70px;
 }
 
 /* =========================
    HEADER (MOBILE FIRST)
    ========================= */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 8px 12px;
   background-color: #4a90e2;
   color: #fff;
 }
@@ -36,8 +42,18 @@ header .logo {
   font-size: clamp(1rem, 4vw, 2.4rem);
 }
 
+.header-slogan {
+  flex: 1;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 3.2rem;
+  color: #fff;
+  font-weight: 600;
+  margin: 0 20px;
+}
+
 .site-logo {
-  max-height: clamp(60px, 18vw, 110px);
+  max-height: clamp(40px, 12vw, 70px);
   width: auto;
   object-fit: contain;
   border-radius: 6px;
@@ -75,6 +91,25 @@ header nav .login-btn {
 
 header nav .register-btn {
   background-color: #ecb314;
+}
+
+/* Hero buttons */
+.login-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background-color: #49cc43;
+  border: 2px solid transparent;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.login-btn:hover {
+  background-color: #fff;
+  color: #49cc43;
 }
 
 /* Dropdown Menu */
@@ -185,12 +220,18 @@ header nav .register-btn {
   text-align: center;
 }
 
-.hero-text h1,
+.hero-text h1{
+  margin: 0 0 8px 0;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1.2;
+  color: #368cd3;
+}
+
 .hero-text h2 {
   margin: 0 0 8px 0;
-  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-size: clamp(2rem, 7vw, 2.7rem);
   line-height: 1.2;
-  color: #2c3e50;
+  color: #368cd3;
 }
 
 .hero-text p {
@@ -239,6 +280,32 @@ header nav .register-btn {
   border-color: #49cc43;
 }
 
+/* Contact button */
+.hero-contact-row {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-contact-row a {
+  width: min(100%, 280px);
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #49cc43;
+  border: 2px solid transparent;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.hero-contact-row a:hover {
+  background-color: #fff;
+  color: #49cc43;
+  border-color: #49cc43;
+}
+
 /* Image */
 .hero-image {
   width: 100%;
@@ -247,7 +314,7 @@ header nav .register-btn {
 }
 
 .hero-image img {
-  max-width: min(100%, 420px);
+  max-width: min(100%, 550px);
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -527,6 +594,17 @@ footer .footer-link:hover {
   font-weight: 500;
 }
 
+/* Hide navigation on all pages */
+header nav {
+  display: none;
+}
+
+/* Hide register and login buttons on index page */
+.hero-register-row,
+.hero-login-row {
+  display: none;
+}
+
 /* =========================
    DESKTOP ENHANCEMENTS
    ========================= */
@@ -548,12 +626,12 @@ footer .footer-link:hover {
   }
 
   .hero-text {
-    text-align: left;
-    flex: 1 1 60%;
+    text-align: center;
+    flex: 1 1 50%;
   }
 
   .hero-image {
-    flex: 0 0 40%;
-    justify-content: flex-end;
+    flex: 0 0 50%;
+    justify-content: center;
   }
 }
